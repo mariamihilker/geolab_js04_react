@@ -1,22 +1,40 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Counter from './Counter';
+import Task from './Task';
+
+const tasks = [
+  {id: 1, text: 'lorem ipsum 1', completed: true},
+  {id: 2, text: 'lorem ipsum 2', completed: false},
+  {id: 3, text: 'lorem ipsum 3', completed: true},
+  {id: 4, text: 'lorem ipsum 4', completed: true},
+];
 
 function App() {
+  const [showCounter, setShowCounter] = useState(true);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        {
+          showCounter && <Counter />
+        }
+
+        <button onClick={() => setShowCounter(false)}>hide counter</button>
+
+        {/* {
+          tasks.map((task, i) => (
+            <Task
+              key={task.id}
+              text={task.text}
+              id={task.id}
+              completed={task.completed}
+              onDelete={'dsdsd'}
+            />
+          ))
+        } */}
       </header>
     </div>
   );
