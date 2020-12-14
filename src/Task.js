@@ -1,20 +1,21 @@
-import Button from "./Button";
+//import Button from "./Button";
+import styles from './Task.module.css';
 
 export default function Task(props) {
   return (
-    <div>
-      <input type="checkbox" />
+    <li className={styles.listItem}>
+      <input className={styles.itemCheckbox} type="checkbox" />
       <span>{props.text}</span>
-      <button
+      <button 
+        className={styles.itemButton}
         onClick={() => {
           if (typeof props.onDelete === 'function') {
             props.onDelete(props.id);
           }
-
           // props.onDelete?.(props.id);
         }}>
           Delete
         </button>
-    </div>
+    </li>
   )
 }

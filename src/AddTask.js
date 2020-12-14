@@ -22,14 +22,15 @@ export default function AddTask(props) {
   }, []);
 
   return (
-    <form onSubmit={onAddTask}>
+    <form onSubmit={onAddTask} className="todo-form">
       <input
+        className="mainInput"
         ref={inputEl}
         type="text"
         onChange={(event) => setValue(event.target.value)}
         value={value}
       />
-      <button>Add Task</button>
+      <button className="mainButton">Add Task</button>
     </form>
   )
 }

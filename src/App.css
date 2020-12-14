@@ -14,16 +14,54 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f2d9f5;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
+}
+.mainButton {
+  padding: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #a0c4ff;
+  color: white;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+.mainButton:hover {
+  background-color: #bdb2ff;
+}
+.mainInput {
+  padding: 10px;
+  border: 1px solid #a0c4ff;
+  transition: all 0.3s ease-in-out;
+  width: 50%;
+  max-width: unset;
+}
+.mainInput:focus {
+  border: 1px solid #bdb2ff;
+  outline: none;
+  width: 55%;
+}
+.todo-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 25px;
+}
 .App-link {
   color: #61dafb;
 }

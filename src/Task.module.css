@@ -1,0 +1,21 @@
+.listItem {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  position: relative;
+}
+.itemButton {
+  font-size: 8px;
+  padding: 10px;
+  margin-left: auto;
+  color: white;
+  background: #f8a3a8;
+  border: 2px solid transparent;
+  font-size: 20px;
+  cursor: pointer;
+}
+.itemCheckbox {
+  width: 20px;
+  height: 20px;
+}

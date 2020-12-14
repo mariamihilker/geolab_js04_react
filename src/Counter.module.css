@@ -1,6 +1,11 @@
-.button {
-  background-color: blueviolet;
-  color: blue;
+button {
+  padding: 10px;
+  margin-left: auto;
+  color: white;
+  background: #f8a3a8;
+  border: 2px solid transparent;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .button1 {
