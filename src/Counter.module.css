@@ -1,0 +1,12 @@
+.button {
+  background-color: blueviolet;
+  color: blue;
+}
+
+.button1 {
+  border-radius: 10px;
+}
+
+#name {
+  width: 200px;
+}

@@ -1,12 +1,18 @@
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useState } from "react";
+import counter from './Counter.module.css';
 
-export default function Counter() {
+let sint;
+
+function Counter(props, ref) {
   let [currentValue, setCurrentValue] = useState(10);
   let [title, setTitle] = useState('');
 
+  useImperativeHandle(ref, () => ({
+    stop: stop,
+  }));
+
   useEffect(() => {
-    let sint = setInterval(() => {
-      console.log('test');
+    sint = setInterval(() => {
       setCurrentValue(val => val + 1);
     }, 1000);
 
@@ -15,16 +21,9 @@ export default function Counter() {
     }
   }, []);
 
-  useEffect(() => {
-    let sint = setInterval(() => {
-      console.log('test');
-      setCurrentValue(val => val + 1);
-    }, 1000);
-
-    return () => {
-      clearInterval(sint);
-    }
-  }, []);
+  function stop() {
+    clearInterval(sint);
+  }
   
   function increase() {
     let newValue = currentValue + 1;
@@ -39,8 +38,10 @@ export default function Counter() {
     <div>
       <h1>{title}</h1>
       <p>{currentValue}</p>
-      <button onClick={increase}>submit</button>
-      <button onClick={updateTitle}>submit</button>
+      <button id={counter.name} className={`${counter.button} ${counter.button1}`} onClick={increase}>submit</button>
+      <button className={counter.button} onClick={updateTitle}>submit</button>
     </div>
   )
 }
+
+export default forwardRef(Counter);
