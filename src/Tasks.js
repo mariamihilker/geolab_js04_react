@@ -3,11 +3,13 @@ import Task from "./Task";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
+const baseUrl = 'https://us-central1-js04-b4877.cloudfunctions.net/tasks';
+
 export default function Tasks() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('https://us-central1-js04-b4877.cloudfunctions.net/tasks/')
+    axios.get(baseUrl)
       .then(response => {
         setTasks(response.data.data);
       })
@@ -29,7 +31,12 @@ export default function Tasks() {
   }
 
   function onDelete(id) {
-    // 
+    console.log(id)
+    axios.delete(`${baseUrl}/${id}`)
+    .then(res => {
+      const del = tasks.filter(employee => id !== employee.id)
+      setTasks(del)
+  })
   }
 
   return (
